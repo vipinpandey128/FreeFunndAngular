@@ -14,8 +14,8 @@ export class AllUserRegistrationComponent implements OnInit {
   private _userService;
   AllUserList: UserModel[];
   errorMessage: any;
-  @ViewChild(MatSort, { static: false }) sort: MatSort;
-  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   displayedColumns: string[] = [
     "Id",
     "UserName",

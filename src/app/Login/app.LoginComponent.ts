@@ -61,7 +61,8 @@ export class LoginComponent implements OnInit
 
                     this.snackBar.open("Logged in Successfully", this.action ? this.actionButtonLabel : undefined, config);
 
-                    this._Route.navigate(['/Admin/Dashboard']);
+                    //this._Route.navigate(['/Admin/Dashboard']);
+                    this._Route.navigate(['/Test']);
                 }
 
                 if (response.Usertype == "2")

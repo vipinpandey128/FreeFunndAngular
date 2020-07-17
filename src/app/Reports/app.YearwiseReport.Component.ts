@@ -27,7 +27,7 @@ export class YearwiseReportComponent implements OnInit
         this._reportService = reportService;
     }
 
-    @ViewChild('TABLE', {static: false}) table: ElementRef;
+    @ViewChild('TABLE') table: ElementRef;
     displayedColumns = ['CurrentYear', 'April', 'May', 'June', 'July', 'August', 'Sept', 'Oct', 'Nov', 'Decm','Jan','Feb','March','Total'];
 
 

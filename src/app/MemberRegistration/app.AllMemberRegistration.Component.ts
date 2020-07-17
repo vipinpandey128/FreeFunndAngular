@@ -21,8 +21,8 @@ export class AllMemberRegistrationComponent implements OnInit {
     private _memberregistration;
     data: MemberRegistrationGridModel[];
     errorMessage: any;
-    @ViewChild(MatSort, {static: false}) sort: MatSort;
-    @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+    @ViewChild(MatSort) sort: MatSort;
+    @ViewChild(MatPaginator) paginator: MatPaginator;
 
     displayedColumns: string[] = ['MemberId', 'MemberNo', 'MemberName', 'Contactno','PlanName', 'SchemeName', 'JoiningDate', 'EditAction', 'DeleteAction'];
     dataSource = new MatTableDataSource<MemberRegistrationGridModel>();;

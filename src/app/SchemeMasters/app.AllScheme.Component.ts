@@ -20,8 +20,8 @@ export class AllSchemeComponent implements OnInit {
   private _SchemeService;
   AllSchemeList: SchemeMasterViewModel[];
   errorMessage: any;
-  @ViewChild(MatSort, { static: false }) sort: MatSort;
-  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   displayedColumns: string[] = [
     "SchemeID",
     "SchemeName",

@@ -49,6 +49,7 @@ import { UserAuthGuardService } from './AuthGuard/UserAuthGuardService';
 import { GenerateRecepitComponent } from './Recepit/app.generateRecepit.Component';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { AllMemberRegistrationComponent } from './MemberRegistration/app.AllMemberRegistration.Component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ AdminDashboardComponent,
     MonthwiseReportComponent,
     RenewalReportComponent,
     GenerateRecepitComponent,
-    AllMemberRegistrationComponent
+    AllMemberRegistrationComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
@@ -223,6 +225,7 @@ AdminDashboardComponent,
       { path: 'Login', component: LoginComponent },
       { path: 'AdminLogout', component: AdminLogoutComponent },
       { path: 'UserLogout', component: UserLogoutComponent },
+      { path: 'Test', component: TestComponent },
 
       { path: '', redirectTo: "Login", pathMatch: 'full' },
       { path: '**', redirectTo: "Login", pathMatch: 'full' },

@@ -14,8 +14,8 @@ export class AllPlanMasterComponent implements OnInit {
     private _planService;
     PlanList: PlanMasterViewModel = new PlanMasterViewModel();
     errorMessage: any;
-    @ViewChild(MatSort, {static: false}) sort: MatSort;
-    @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+    @ViewChild(MatSort) sort: MatSort;
+    @ViewChild(MatPaginator) paginator: MatPaginator;
     displayedColumns: string[] = ['PlanID', 'PlanName', 'SchemeName', 'Text', 'TotalAmount', 'RecStatus', 'EditAction', 'DeleteAction'];
     dataSource: any;
     constructor(private _Route: Router, private planService: PlanService) {

@@ -29,7 +29,7 @@ export class RenewalReportComponent implements OnInit
     tomaxDate: Date;
      
 
-    @ViewChild('TABLE', {static: false}) table: ElementRef;
+    @ViewChild('TABLE') table: ElementRef;
     displayedColumns = ['Name', 'Contactno', 'EmailID', 'MemberNo', 'PlanName', 'SchemeName', 'JoiningDate', 'RenwalDate', 'PaymentAmount'];
 
     ngOnInit() 

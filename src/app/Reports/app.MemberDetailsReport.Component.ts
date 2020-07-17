@@ -22,7 +22,7 @@ export class MemberDetailsReportComponent
         this._reportService = reportService;
     }
 
-    @ViewChild('TABLE', {static: false}) table: ElementRef;
+    @ViewChild('TABLE') table: ElementRef;
     displayedColumns = ['MemberNo','Name', 'Contactno', 'EmailID', 'PlanName', 'SchemeName', 'JoiningDate', 'RenwalDate', 'PaymentAmount'];
     
 

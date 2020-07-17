@@ -17,8 +17,8 @@ export class AllRoleComponent implements OnInit {
     RoleList: RoleModel = new RoleModel();
     output: any;
     errorMessage: any;
-    @ViewChild(MatSort, {static: false}) sort: MatSort;
-    @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+    @ViewChild(MatSort) sort: MatSort;
+    @ViewChild(MatPaginator) paginator: MatPaginator;
     displayedColumns: string[] = ['RoleId', 'RoleName', 'Status', 'EditAction', 'DeleteAction'];
     dataSource: any;
 

@@ -26,7 +26,7 @@ export class MonthwiseReportComponent implements OnInit
         this._reportService = reportService;
     }
 
-    @ViewChild('TABLE', {static: false}) table: ElementRef;
+    @ViewChild('TABLE') table: ElementRef;
     displayedColumns = ['MemberFName', 'MemberNo', 'MemberLName', 'MemberMName', 'CreateDate', 'Total', 'Paymentmonth', 'PaymentAmount', 'Username'];
 
 

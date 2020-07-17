@@ -15,8 +15,8 @@ import { AssignRolesViewModel } from './Models/AssignRolesViewModel';
 export class AllAssignRoleComponent implements OnInit 
 {
     private _assignservice;
-    @ViewChild(MatSort, {static: false}) sort: MatSort;
-    @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+    @ViewChild(MatSort) sort: MatSort;
+    @ViewChild(MatPaginator) paginator: MatPaginator;
     displayedColumns: string[] = ['RoleName', 'UserName'];
     dataSource: any;
     AssignModel : AssignRolesViewModel[]
