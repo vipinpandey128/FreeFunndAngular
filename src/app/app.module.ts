@@ -22,7 +22,7 @@ import { AllRoleComponent } from './RoleMaster/app.AllRole.component';
 import { EditRoleComponent } from './RoleMaster/app.EditRole.component';
 import { MemberRegistrationComponent } from './MemberRegistration/app.MemberRegistration.component';
 import { EditMemberRegistrationComponent } from './MemberRegistration/app.EditMemberRegistration.Component';
-import { MatSortModule, MatPaginatorModule, MatFormFieldModule, MatInputModule, MatSnackBar, MatSnackBarConfig, MatSnackBarModule,MatCardModule, MatButtonModule, MatSelectModule, MatIconModule, MatCheckboxModule } from '@angular/material';
+import { MatSidenavModule, MatSortModule, MatPaginatorModule, MatFormFieldModule, MatInputModule, MatSnackBar, MatSnackBarConfig, MatSnackBarModule,MatCardModule, MatButtonModule, MatSelectModule, MatIconModule, MatCheckboxModule, MatToolbarModule, MatListModule } from '@angular/material';
 import { UserRegistrationComponent } from './CreateUsers/app.UserRegistration.component';
 import { AllUserRegistrationComponent } from './CreateUsers/app.AllUserRegistration.Component';
 import { EditUserRegistrationComponent } from './CreateUsers/app.EditUserRegistration.Component';
@@ -116,6 +116,10 @@ AdminDashboardComponent,
     MatButtonModule,
     MatSelectModule,
     MatIconModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    
    
 
     RouterModule.forRoot([

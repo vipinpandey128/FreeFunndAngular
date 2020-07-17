@@ -3,6 +3,6 @@
 export const environment =
 {
     production: false,
-    apiEndpoint: 'https://localhost:44319'
+    apiEndpoint: 'https://localhost:44351'
   };
 

@@ -30,8 +30,6 @@ export class LoginService {
         return this._http.post<any>(this.apiUrl, loginmodel, { headers: headers })
             .pipe(tap(data =>
             {
-                console.log(data);
-
                 if (data.Token != null)
                 {
                     if (data.Usertype == "2") {
