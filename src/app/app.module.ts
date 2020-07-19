@@ -51,6 +51,12 @@ import { AllMemberRegistrationComponent } from './MemberRegistration/app.AllMemb
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { AddMoneyComponent } from './AddMoney/AddMoney.component';
 import { DepositMoneyComponent } from './DepositMoney/DepositMoney.component';
+import { AgentDashboardComponent } from './AgentDashboard/AgentDashboard.component';
+import { ProfileComponent } from './Profile/Profile.component';
+import { UserTransactionComponent } from './UserTransaction/UserTransaction.component';
+import { AgentTransactionComponent } from './AgentTransaction/AgentTransaction.component';
+import { AdminTransactionComponent } from './AdminTransaction/AdminTransaction.component';
+import { AllTransactionComponent } from './AllTransaction/AllTransaction.component';
 
 @NgModule({
    declarations: [
@@ -90,7 +96,13 @@ import { DepositMoneyComponent } from './DepositMoney/DepositMoney.component';
       GenerateRecepitComponent,
       AllMemberRegistrationComponent,
       AddMoneyComponent,
-      DepositMoneyComponent
+      DepositMoneyComponent,
+      AgentDashboardComponent,
+      ProfileComponent,
+      UserTransactionComponent,
+      AgentTransactionComponent,
+      AdminTransactionComponent,
+      AllTransactionComponent
    ],
    imports: [
       BrowserModule,
@@ -122,113 +134,15 @@ import { DepositMoneyComponent } from './DepositMoney/DepositMoney.component';
       MatToolbarModule,
       MatSidenavModule,
       MatListModule,
-      RouterModule.forRoot([
-         {
-           path: 'Scheme',
-           component: AppAdminLayoutComponent,
-           children: [
-             { path: 'Add', component: SchemeComponent , canActivate: [AdminAuthGuardService] },
-             { path: 'Edit/:schemeId', component: EditSchemeComponent , canActivate: [AdminAuthGuardService] },
-             { path: 'All', component: AllSchemeComponent, canActivate: [AdminAuthGuardService]  }
-           ]
-         },
-         {
-           path: 'Plan',
-           component: AppAdminLayoutComponent,
-           children: [
-             { path: 'Add', component: PlanMasterComponent , canActivate: [AdminAuthGuardService] },
-             { path: 'Edit/:PlanID', component: EditPlanComponent , canActivate: [AdminAuthGuardService] },
-             { path: 'All', component: AllPlanMasterComponent , canActivate: [AdminAuthGuardService] }
-           ]
-         },
-         {
-           path: 'Role',
-           component: AppAdminLayoutComponent,
-           children: [
-             { path: 'Add', component: RoleComponent , canActivate: [AdminAuthGuardService] },
-             { path: 'Edit/:RoleID', component: EditRoleComponent , canActivate: [AdminAuthGuardService] },
-             { path: 'All', component: AllRoleComponent , canActivate: [AdminAuthGuardService] }
-           ]
-         },
-         {
-           path: 'Member',
-           component: AppUserLayoutComponent,
-           children: [
-             { path: 'Add', component: MemberRegistrationComponent ,canActivate: [UserAuthGuardService]},
-             { path: 'Edit/:MemberId', component: EditMemberRegistrationComponent ,canActivate: [UserAuthGuardService]},
-             { path: 'All', component: MemberViewComponent ,canActivate: [UserAuthGuardService]}
-           ]
-         },
-         {
-           path: 'User',
-           component: AppAdminLayoutComponent,
-           children: [
-             { path: 'Add', component: UserRegistrationComponent , canActivate: [AdminAuthGuardService] },
-             { path: 'Edit/:UserId', component: EditUserRegistrationComponent , canActivate: [AdminAuthGuardService] },
-             { path: 'All', component: AllUserRegistrationComponent, canActivate: [AdminAuthGuardService]  }
-           ]
-         },
-         {
-           path: 'Assign',
-           component: AppAdminLayoutComponent,
-           children: [
-             { path: 'Role', component: AssignRoleComponent , canActivate: [AdminAuthGuardService] },
-             { path: 'AllRole', component: AllAssignRoleComponent , canActivate: [AdminAuthGuardService] }
-           ]
-         },
-         {
-           path: 'Payment',
-           component: AppUserLayoutComponent,
-           children: [
-             { path: 'Details', component: PaymentOverviewComponent,canActivate: [UserAuthGuardService] }
-           ]
-         },
-         {
-           path: 'Renewal',
-           component: AppUserLayoutComponent,
-           children: [
-             { path: 'Renew', component: RenewalComponent ,canActivate: [UserAuthGuardService]  }
-           ]
-         },
-   
-         {
-           path: 'Admin',
-           component: AppAdminLayoutComponent,
-           children: [
-             { path: 'Dashboard', component: AdminDashboardComponent , canActivate: [AdminAuthGuardService]  }
-   
-           ]
-         },
-         {
-           path: 'User',
-           component: AppUserLayoutComponent,
-           children: [
-             { path: 'Dashboard', component: UserDashboardComponent,canActivate: [UserAuthGuardService] },
-             { path: 'Recepit/:PaymentID', component: GenerateRecepitComponent,canActivate: [UserAuthGuardService] }
-           ]
-         },
-         {
-           path: 'Report',
-           component: AppAdminLayoutComponent,
-           children: [
-             { path: 'Member', component: MemberDetailsReportComponent, canActivate: [AdminAuthGuardService]  },
-             { path: 'Yearwise', component: YearwiseReportComponent , canActivate: [AdminAuthGuardService] },
-             { path: 'Monthwise', component: MonthwiseReportComponent, canActivate: [AdminAuthGuardService]  },
-             { path: 'Renewal', component: RenewalReportComponent, canActivate: [AdminAuthGuardService]  }
-   
-           ]
-         },
-   
-   
-         { path: 'Login', component: LoginComponent },
-         { path: 'AdminLogout', component: AdminLogoutComponent },
-         { path: 'UserLogout', component: UserLogoutComponent },
-   
-         { path: '', redirectTo: "Login", pathMatch: 'full' },
-         { path: '**', redirectTo: "Login", pathMatch: 'full' },
-   
-   
-       ], { useHash: true })
+      RouterModule.forRoot([\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\npath
+   ],
+   path: [
+      'Edit/
+   ],
+   useHash: [
+      true
+   ]
+})
      ],
      exports: [BsDatepickerModule],
      providers: [DatePipe, AdminAuthGuardService,UserAuthGuardService],
