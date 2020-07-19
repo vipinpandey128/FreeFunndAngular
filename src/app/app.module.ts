@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule, } from 'ngx-bootstrap/datepicker';
-
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -47,9 +46,9 @@ import { UserLogoutComponent } from './Login/app.UserLogout.Component';
 import { AdminAuthGuardService } from './AuthGuard/AdminAuthGuardService';
 import { UserAuthGuardService } from './AuthGuard/UserAuthGuardService';
 import { GenerateRecepitComponent } from './Recepit/app.generateRecepit.Component';
-import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
+//import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { AllMemberRegistrationComponent } from './MemberRegistration/app.AllMemberRegistration.Component';
-import { TestComponent } from './test/test.component';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 @NgModule({
   declarations: [
@@ -89,8 +88,7 @@ AdminDashboardComponent,
     MonthwiseReportComponent,
     RenewalReportComponent,
     GenerateRecepitComponent,
-    AllMemberRegistrationComponent,
-    TestComponent
+    AllMemberRegistrationComponent 
   ],
   imports: [
     BrowserModule,
@@ -99,7 +97,8 @@ AdminDashboardComponent,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    Ng4LoadingSpinnerModule.forRoot(),
+    //Ng4LoadingSpinnerModule.forRoot(),
+    FlexLayoutModule,
     BsDatepickerModule.forRoot(),
     MatTableModule,
     MatAutocompleteModule,
@@ -110,7 +109,7 @@ AdminDashboardComponent,
     MatCardModule,
     MatInputModule,
     MatSnackBarModule,
-    Ng4LoadingSpinnerModule,
+    //Ng4LoadingSpinnerModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -225,7 +224,6 @@ AdminDashboardComponent,
       { path: 'Login', component: LoginComponent },
       { path: 'AdminLogout', component: AdminLogoutComponent },
       { path: 'UserLogout', component: UserLogoutComponent },
-      { path: 'Test', component: TestComponent },
 
       { path: '', redirectTo: "Login", pathMatch: 'full' },
       { path: '**', redirectTo: "Login", pathMatch: 'full' },

@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { LoginModel } from './Models/app.LoginModel';
 import { LoginService } from './Services/app.LoginService';
 import { MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition, MatSnackBar, MatSnackBarConfig } from '@angular/material';
-import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+//import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 @Component({
     templateUrl: './app.login.html',
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit
     horizontalPosition: MatSnackBarHorizontalPosition = 'center';
 
 
-    constructor(private spinnerService: Ng4LoadingSpinnerService,private _Route: Router,public snackBar: MatSnackBar, loginservice: LoginService)
+    constructor(private _Route: Router,public snackBar: MatSnackBar, loginservice: LoginService)
     {
         this._loginservice = loginservice;
     }
@@ -37,11 +37,9 @@ export class LoginComponent implements OnInit
 
     onSubmit()
     {
-      this.spinnerService.show();
         this._loginservice.validateLoginUser(this.LoginModel).subscribe(
             response =>
             {
-              this.spinnerService.hide();
                 if (response.Token == null && response.Usertype == "0")
                 {
                     let config = new MatSnackBarConfig();
@@ -61,8 +59,7 @@ export class LoginComponent implements OnInit
 
                     this.snackBar.open("Logged in Successfully", this.action ? this.actionButtonLabel : undefined, config);
 
-                    //this._Route.navigate(['/Admin/Dashboard']);
-                    this._Route.navigate(['/Test']);
+                    this._Route.navigate(['/Admin/Dashboard']);
                 }
 
                 if (response.Usertype == "2")

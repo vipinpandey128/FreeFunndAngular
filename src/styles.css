@@ -127,8 +127,8 @@ h1 {
     }
   }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
 
 .blue{ color: #2196f3  ;}
 .green{ color: #00695c  ;}

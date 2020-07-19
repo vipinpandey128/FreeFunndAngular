@@ -29,7 +29,6 @@
     "html2canvas": "^1.0.0-rc.5",
     "jspdf": "^1.5.3",
     "metismenu": "^3.0.4",
-    "ng4-loading-spinner": "^1.2.3",
     "ngx-bootstrap": "^5.2.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
