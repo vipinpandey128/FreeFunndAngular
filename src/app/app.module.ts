@@ -19,19 +19,14 @@ import { EditPlanComponent } from './PlanMaster/app.EditPlan.component';
 import { RoleComponent } from './RoleMaster/app.Role.component';
 import { AllRoleComponent } from './RoleMaster/app.AllRole.component';
 import { EditRoleComponent } from './RoleMaster/app.EditRole.component';
-import { MemberRegistrationComponent } from './MemberRegistration/app.MemberRegistration.component';
-import { EditMemberRegistrationComponent } from './MemberRegistration/app.EditMemberRegistration.Component';
 import { MatSidenavModule, MatSortModule, MatPaginatorModule, MatFormFieldModule, MatInputModule, MatSnackBar, MatSnackBarConfig, MatSnackBarModule,MatCardModule, MatButtonModule, MatSelectModule, MatIconModule, MatCheckboxModule, MatToolbarModule, MatListModule } from '@angular/material';
 import { UserRegistrationComponent } from './CreateUsers/app.UserRegistration.component';
 import { AllUserRegistrationComponent } from './CreateUsers/app.AllUserRegistration.Component';
 import { EditUserRegistrationComponent } from './CreateUsers/app.EditUserRegistration.Component';
 import { AssignRoleComponent } from './AssignRole/app.AssignRole.Component';
 import { AllAssignRoleComponent } from './AssignRole/app.AllAssignRole.component';
-import { MemberListComponent } from './MemberRegistration/List/app.MemberListComponent ';
-import { MemberViewComponent } from './MemberRegistration/List/app.MemberViewComponent';
 import { PaymentOverviewComponent } from './Payment/List/app.PaymentOverviewComponent';
 import { PaymentListComponent } from './Payment/List/app.PaymentListComponent';
-import { RenewalComponent } from './Renewal/app.Renewal.Component';
 import { LoginComponent } from './Login/app.LoginComponent';
 import { AppAdminLayoutComponent } from './_layout/app-adminlayout.component';
 import { UserDashboardComponent } from './UserDashboard/app.UserDashboardComponent';
@@ -47,7 +42,6 @@ import { AdminAuthGuardService } from './AuthGuard/AdminAuthGuardService';
 import { UserAuthGuardService } from './AuthGuard/UserAuthGuardService';
 import { GenerateRecepitComponent } from './Recepit/app.generateRecepit.Component';
 //import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
-import { AllMemberRegistrationComponent } from './MemberRegistration/app.AllMemberRegistration.Component';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { AddMoneyComponent } from './AddMoney/AddMoney.component';
 import { DepositMoneyComponent } from './DepositMoney/DepositMoney.component';
@@ -72,10 +66,6 @@ import { AllTransactionComponent } from './AllTransaction/AllTransaction.compone
       RoleComponent,
       AllRoleComponent,
       EditRoleComponent,
-      MemberRegistrationComponent,
-      MemberListComponent,
-      MemberViewComponent,
-      EditMemberRegistrationComponent,
       UserRegistrationComponent,
       AllUserRegistrationComponent,
       EditUserRegistrationComponent,
@@ -83,7 +73,6 @@ import { AllTransactionComponent } from './AllTransaction/AllTransaction.compone
       AllAssignRoleComponent,
       PaymentOverviewComponent,
       PaymentListComponent,
-      RenewalComponent,
       LoginComponent,
       AdminLogoutComponent,
       UserLogoutComponent,
@@ -94,7 +83,6 @@ import { AllTransactionComponent } from './AllTransaction/AllTransaction.compone
       MonthwiseReportComponent,
       RenewalReportComponent,
       GenerateRecepitComponent,
-      AllMemberRegistrationComponent,
       AddMoneyComponent,
       DepositMoneyComponent,
       AgentDashboardComponent,
@@ -134,15 +122,27 @@ import { AllTransactionComponent } from './AllTransaction/AllTransaction.compone
       MatToolbarModule,
       MatSidenavModule,
       MatListModule,
-      RouterModule.forRoot([\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\npath
-   ],
-   path: [
-      'Edit/
-   ],
-   useHash: [
-      true
-   ]
-})
+      RouterModule.forRoot([
+         {
+           path: 'Scheme',
+           component: AppAdminLayoutComponent,
+           children: [
+             { path: 'Add', component: SchemeComponent , canActivate: [AdminAuthGuardService] },
+             { path: 'Edit/:schemeId', component: EditSchemeComponent , canActivate: [AdminAuthGuardService] },
+             { path: 'All', component: AllSchemeComponent, canActivate: [AdminAuthGuardService]  }
+           ]
+         },
+   
+   
+         { path: 'Login', component: LoginComponent },
+         { path: 'AdminLogout', component: AdminLogoutComponent },
+         { path: 'UserLogout', component: UserLogoutComponent },
+   
+         { path: '', redirectTo: "Login", pathMatch: 'full' },
+         { path: '**', redirectTo: "Login", pathMatch: 'full' },
+   
+   
+       ], { useHash: true })
      ],
      exports: [BsDatepickerModule],
      providers: [DatePipe, AdminAuthGuardService,UserAuthGuardService],
