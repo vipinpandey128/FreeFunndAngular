@@ -1,3 +1,5 @@
+import { AgentAuthGuardService } from './AuthGuard/AgentAuthGuardService';
+import { BetComponent } from './Bet/Bet.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule, } from 'ngx-bootstrap/datepicker';
@@ -51,6 +53,11 @@ import { UserTransactionComponent } from './UserTransaction/UserTransaction.comp
 import { AgentTransactionComponent } from './AgentTransaction/AgentTransaction.component';
 import { AdminTransactionComponent } from './AdminTransaction/AdminTransaction.component';
 import { AllTransactionComponent } from './AllTransaction/AllTransaction.component';
+import { AgentLogoutComponent } from './Login/agent-logout.component';
+import { GameComponent } from './Game/Game.component';
+import { AgentUserComponent } from './AgentUser/AgentUser.component';
+import { AppAgentLayoutComponent } from './_layout/app-agent-layout.component';
+
 
 @NgModule({
    declarations: [
@@ -90,7 +97,11 @@ import { AllTransactionComponent } from './AllTransaction/AllTransaction.compone
       UserTransactionComponent,
       AgentTransactionComponent,
       AdminTransactionComponent,
-      AllTransactionComponent
+      AllTransactionComponent,
+      GameComponent,
+      BetComponent,
+      AgentUserComponent,
+      AppAgentLayoutComponent
    ],
    imports: [
       BrowserModule,
@@ -99,7 +110,6 @@ import { AllTransactionComponent } from './AllTransaction/AllTransaction.compone
       FormsModule,
       AppRoutingModule,
       HttpClientModule,
-      //Ng4LoadingSpinnerModule.forRoot(),
       FlexLayoutModule,
       BsDatepickerModule.forRoot(),
       MatTableModule,
@@ -123,7 +133,18 @@ import { AllTransactionComponent } from './AllTransaction/AllTransaction.compone
       MatSidenavModule,
       MatListModule,
       RouterModule.forRoot([
-         {
+
+        //Admin path
+        {
+          path: 'Role',
+          component: AppAdminLayoutComponent,
+          children: [
+            { path: 'Add', component: RoleComponent , canActivate: [AdminAuthGuardService] },
+            { path: 'Edit/:RoleID', component: EditRoleComponent , canActivate: [AdminAuthGuardService] },
+            { path: 'All', component: AllRoleComponent , canActivate: [AdminAuthGuardService] }
+          ]
+        }, 
+        {
            path: 'Scheme',
            component: AppAdminLayoutComponent,
            children: [
@@ -132,11 +153,60 @@ import { AllTransactionComponent } from './AllTransaction/AllTransaction.compone
              { path: 'All', component: AllSchemeComponent, canActivate: [AdminAuthGuardService]  }
            ]
          },
-   
+         {
+            path: 'Game',
+            component: AppAdminLayoutComponent,
+            children: [
+              { path: 'Add', component: GameComponent , canActivate: [AdminAuthGuardService] },
+            ]
+          },
+         {
+            path: 'Bet',
+            component: AppAdminLayoutComponent,
+            children: [
+              { path: 'Add', component: BetComponent , canActivate: [AdminAuthGuardService] },
+            ]
+          },
+          {
+            path: 'User',
+            component: AppAdminLayoutComponent,
+            children: [
+              { path: 'Add', component: UserRegistrationComponent , canActivate: [AdminAuthGuardService] },
+              { path: 'Edit/:UserId', component: EditUserRegistrationComponent , canActivate: [AdminAuthGuardService] },
+              { path: 'All', component: AllUserRegistrationComponent, canActivate: [AdminAuthGuardService]  }
+            ]
+          },
+          {
+            path: 'Assign',
+            component: AppAdminLayoutComponent,
+            children: [
+              { path: 'Role', component: AssignRoleComponent , canActivate: [AdminAuthGuardService] },
+              { path: 'AllRole', component: AllAssignRoleComponent , canActivate: [AdminAuthGuardService] }
+            ]
+          },
+
+
+          //agent path
+          {
+            path: 'AgentUser',
+            component: AppAgentLayoutComponent,
+            children: [
+              { path: 'CreateUser', component: AgentUserComponent , canActivate: [AgentAuthGuardService] },
+            ]
+          },
+          {
+            path: 'Deposit',
+            component: AppAgentLayoutComponent,
+            children: [
+              { path: 'Deposit', component: DepositMoneyComponent , canActivate: [AgentAuthGuardService] },
+            ]
+          },
+          
    
          { path: 'Login', component: LoginComponent },
          { path: 'AdminLogout', component: AdminLogoutComponent },
          { path: 'UserLogout', component: UserLogoutComponent },
+         { path: 'AgentLogout', component: AgentLogoutComponent },
    
          { path: '', redirectTo: "Login", pathMatch: 'full' },
          { path: '**', redirectTo: "Login", pathMatch: 'full' },
@@ -145,8 +215,9 @@ import { AllTransactionComponent } from './AllTransaction/AllTransaction.compone
        ], { useHash: true })
      ],
      exports: [BsDatepickerModule],
-     providers: [DatePipe, AdminAuthGuardService,UserAuthGuardService],
+     providers: [DatePipe, AdminAuthGuardService,UserAuthGuardService,AgentAuthGuardService],
      bootstrap: [AppComponent]
    })
    export class AppModule { }
    
+
